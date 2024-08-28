@@ -4,8 +4,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
-#include <stdio.h>
-#include <stdlib.h>
 
 void print_help();
 
