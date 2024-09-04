@@ -19,8 +19,8 @@ int main(int argn, char **argv){
         sscanf(argv[3],"%i", &N);
 
         market = newMarket(argv[1],M,N);
-        user = malloc(sizeof(User)*N);
-        stock = malloc(sizeof(Stock)*M);
+        //user = malloc(sizeof(User)*N);
+        //stock = malloc(sizeof(Stock)*M);
     
         // Creating stocks
         printf("Generating %i stock... ",M);
@@ -34,7 +34,7 @@ int main(int argn, char **argv){
         // Creating users
         printf("Generating %i users... ",N);
         for(i=0; i < N; i++){
-            addUser(market, newUser(i, 100.0+i));
+            addUser(market, newUser(i, 1000.0));
             //user[i] = newUser(i,1000.00);
         }
         printf("Ready!\n");
@@ -46,9 +46,10 @@ int main(int argn, char **argv){
 
         printMarket(market);
 
-        free(user);
-        free(stock);
-        free(market);
+        //free(user);
+        //free(stock);
+        //free(market);
+        closeMarket(market);
     }else{
         print_help();
     }

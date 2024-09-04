@@ -24,6 +24,8 @@ int addUser(Market *market, User user);
 
 void printMarket(Market *market);
 
+int closeMarket(Market *market);
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */
