@@ -3,9 +3,10 @@
 #include <string.h>
 #include "stock.h"
 
-Stock newStock(char code[], float price){
+Stock newStock(char code[], float price, int nstocks){
     Stock stock;
     stock.price = price;
     strcpy(stock.code, code);
+    stock.nstocks = nstocks;
     return stock;
 }

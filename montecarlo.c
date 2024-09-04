@@ -4,6 +4,7 @@
 #include "user.h"
 #include "stock.h"
 #include "market.h"
+#include "engine.h"
 
 int main(int argn, char **argv){
     User *user;
@@ -26,7 +27,7 @@ int main(int argn, char **argv){
         printf("Generating %i stock... ",M);
         for(i=0; i < M; i++){
             sprintf(code,"MEX%i",i);
-            addStock(market,newStock(code,100.0));
+            addStock(market,newStock(code,100.0,1000));
             //stock[i] = newStock(code,100.0);
         }
         printf("Ready!\n");
@@ -41,8 +42,14 @@ int main(int argn, char **argv){
     
         // Memory verification
         //printf("%s:%f\n",stock[0].code,stock[0].price);
-        memory_used = (float)(sizeof(user[0])* + sizeof(stock[0])*M)/1e6; 
+        memory_used = (float)(sizeof(User)* + sizeof(Stock)*M)/1e6; 
         printf("Memory used: %f Mb \n",memory_used);
+
+        // Market simulation
+        for (int i; i < 10; i++){
+            montecarlo(market);
+            printJapaneseCandle(market);
+        }
 
         printMarket(market);
 

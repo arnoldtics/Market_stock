@@ -9,10 +9,10 @@ extern "C" {
 
 typedef struct{
     char name[8];
-    int nstocks; // total number of stocks
-    int nusers; // number of users
-    int index_stock; // index of stock
-    int index_user; // index of user
+    int nstocks; // max number of stocks
+    int nusers; // max number of users
+    int index_stock; // total of stock
+    int index_user; // total of user
     Stock *stocks; 
     User *users;
 } Market;
