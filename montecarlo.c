@@ -34,7 +34,8 @@ int main(int argn, char **argv){
         // Creating users
         printf("Generating %i users... ",N);
         for(i=0; i < N; i++){
-          user[i] = newUser(i,1000.00);
+            addUser(market, newUser(i, 100.0+i));
+            //user[i] = newUser(i,1000.00);
         }
         printf("Ready!\n");
     
