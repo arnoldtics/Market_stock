@@ -1,8 +1,16 @@
 #include "market.h"
+#include "order.h"
+#include <time.h>   // Para la función time()
+#include <stddef.h> // Para NULL
+#include <stdio.h>
+#include <stdlib.h>
 
 int montecarlo(Market *market){
     float price;
     int r;
+    int n_actions;
+    float ask,bid;
+
     srand(time(NULL));
 
     for(int i; i < market->index_stock; i++){
@@ -13,7 +21,8 @@ int montecarlo(Market *market){
                 r = rand();
                 if (r%2 == 0){
                     // run the market
-                    newOrderBuy(market->stocks[i], n, bid);
+                    n_actions = 0; bid = 0.0;
+                    createOrder_buy(market, &market->stocks[i], &market->users[j], n_actions, bid);
                 } else{
                     // pass
                 }

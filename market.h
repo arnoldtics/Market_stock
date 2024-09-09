@@ -4,8 +4,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
+
 #include "stock.h"
 #include "user.h"
+//#include "order.h"
+
+struct Order;
+
 
 typedef struct{
     char name[8];
@@ -13,8 +18,10 @@ typedef struct{
     int nusers; // max number of users
     int index_stock; // total of stock
     int index_user; // total of user
+    int index_order; // total of orders by iteration
     Stock *stocks; 
     User *users;
+    struct Order *orders;
 } Market;
 
 Market *newMarket(char name[], int nstocks, int nusers);
