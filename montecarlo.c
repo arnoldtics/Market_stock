@@ -42,7 +42,7 @@ int main(int argn, char **argv){
     
         // Memory verification
         //printf("%s:%f\n",stock[0].code,stock[0].price);
-        memory_used = (float)(sizeof(User)* + sizeof(Stock)*M)/1e6; 
+        memory_used = (float)(sizeof(User)*N + sizeof(Stock)*M)/1e6; 
         printf("Memory used: %f Mb \n",memory_used);
 
         // Market simulation

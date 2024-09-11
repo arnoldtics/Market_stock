@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "market.h"
+#include "user.h"
 
 Market *newMarket(char name[], int nstocks, int nusers){
     Market *market;

@@ -7,9 +7,10 @@ extern "C" {
 
 #include "stock.h"
 #include "user.h"
+#include "market.h"
 
 // Declaración adelantada de la estructura Market
-struct Market;
+//typedef struct Market;
 
 typedef struct {
     Stock *stock;
