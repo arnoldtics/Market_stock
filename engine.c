@@ -25,7 +25,7 @@ int montecarlo(Market *market){
                     //if (r%2 == 0){
                     // run the market
                     n_actions = 0; bid = 0.0;
-                    createOrder_buy(&market, &market->stocks[i], &market->users[j]);
+                    createOrder_buy(market, &market->stocks[i], &market->users[j]);
                 } else{
                     // pass
                 }
