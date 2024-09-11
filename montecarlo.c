@@ -11,15 +11,16 @@ int main(int argn, char **argv){
     Stock *stock;
     Market *market;
     char code[8];
-    int i,N,M;
+    int i,N,M,P;
     float memory_used;
   
     //printf("%i\n",argn);
-    if (argn == 4){
+    if (argn == 5){
         sscanf(argv[2],"%i", &M);
         sscanf(argv[3],"%i", &N);
+        sscanf(argv[4],"%i", &P);
 
-        market = newMarket(argv[1],M,N);
+        market = newMarket(argv[1],M,N,P);
         //user = malloc(sizeof(User)*N);
         //stock = malloc(sizeof(Stock)*M);
     
@@ -35,7 +36,7 @@ int main(int argn, char **argv){
         // Creating users
         printf("Generating %i users... ",N);
         for(i=0; i < N; i++){
-            addUser(market, newUser(i, 1000.0));
+            addUser(market, newUser(i, 1000.0, 0.0));
             //user[i] = newUser(i,1000.00);
         }
         printf("Ready!\n");

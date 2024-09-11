@@ -4,6 +4,6 @@
 
 void print_help(){
     printf("Error; Missing arguments.\n");
-    printf("Three argument are required.\n");
-    printf("Example: ./montecarlo.exe <name> <stocks> <users>.\n");
+    printf("Four argument are required.\n");
+    printf("Example: ./montecarlo.exe <name> <stocks> <users> <orders>\n");
 }

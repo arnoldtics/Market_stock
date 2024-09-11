@@ -16,14 +16,14 @@ typedef struct {
     Stock *stock;
     User *user;
     int n_actions; // Número de acciones en la transacción
-    int typeOrder; // 0: sell, 1: buy
+    int typeOrder; // 0: sell, 1: buy, -1:not enough memory
     float ask;
     float bid;
 } Order;
 
 // Prototipos de funciones (usando Market * en lugar de struct Market *)
-int createOrder_buy(Market *market, Stock *stock, User *user, int n_actions, float bid);
-int createOrder_sell(Market *market, Stock *stock, User *user, int n_actions, float ask);
+Order createOrder_buy(Market *market, Stock *stock, User *user);
+Order createOrder_sell(Market *market, Stock *stock, User *user);
 
 #ifdef __cplusplus
 } /* extern "C" */

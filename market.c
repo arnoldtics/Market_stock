@@ -3,8 +3,9 @@
 #include <string.h>
 #include "market.h"
 #include "user.h"
+#include "order.h"
 
-Market *newMarket(char name[], int nstocks, int nusers){
+Market *newMarket(char name[], int nstocks, int nusers, int norders){
     Market *market;
 
     market = malloc(sizeof(Market));
@@ -12,8 +13,10 @@ Market *newMarket(char name[], int nstocks, int nusers){
     strcpy(market->name, name);
     market->nstocks = nstocks;
     market->nusers = nusers;
+    market->norders = norders;
     market->stocks = malloc(nstocks * sizeof(Stock));
     market->users = malloc(nusers * sizeof(User));
+    market->orders = malloc(sizeof(Order)*norders);
     market->index_stock = 0;
     market->index_user = 0;
     return market;
@@ -45,6 +48,7 @@ void printMarket(Market *market){
 int closeMarket(Market *market){
     free(market->stocks);
     free(market->users);
+    free(market->orders);
     free(market);
     return 1;
 }

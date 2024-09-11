@@ -16,6 +16,7 @@ typedef struct{
     char name[8];
     int nstocks; // max number of stocks
     int nusers; // max number of users
+    int norders;
     int index_stock; // total of stock
     int index_user; // total of user
     int index_order; // total of orders by iteration
@@ -24,7 +25,7 @@ typedef struct{
     struct Order *orders;
 } Market;
 
-Market *newMarket(char name[], int nstocks, int nusers);
+Market *newMarket(char name[], int nstocks, int nusers, int norders);
 
 int addStock(Market *market, Stock stock);
 int addUser(Market *market, User user);
