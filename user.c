@@ -17,4 +17,6 @@ int askOrderBuy(User user, Stock stock){
     else {return 0;}
 }
 
-int askOrderSell(User user, Stock stock);
+int askOrderSell(User user, Stock stock){
+    return 1;
+}

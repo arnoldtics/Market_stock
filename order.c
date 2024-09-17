@@ -40,3 +40,9 @@ Order createOrder_sell(Market *market, Stock *stock, User *user) {
     Order order;
     return order; 
 }
+
+void printOrders(Market *market){
+  for (int i=0; i < market->index_order; i++){
+    printf("%i,%i\n",i,market->orders[i].n_actions);
+  }
+}

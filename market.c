@@ -19,6 +19,7 @@ Market *newMarket(char name[], int nstocks, int nusers, int norders){
     market->orders = malloc(sizeof(Order)*norders);
     market->index_stock = 0;
     market->index_user = 0;
+    market->index_order = 0;
     return market;
 }
 

@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "help.h"
 #include "user.h"
 #include "stock.h"
 #include "market.h"
 #include "engine.h"
+#include "order.h"
+#include "common.h"
 
 int main(int argn, char **argv){
     User *user;
