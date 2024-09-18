@@ -16,10 +16,12 @@ Market *newMarket(char name[], int nstocks, int nusers, int norders){
     market->norders = norders;
     market->stocks = malloc(nstocks * sizeof(Stock));
     market->users = malloc(nusers * sizeof(User));
-    market->orders = malloc(sizeof(Order)*norders);
+    market->orders_buy = malloc(sizeof(Order)*norders);
+    market->orders_sell = malloc(sizeof(Order)*norders);
     market->index_stock = 0;
     market->index_user = 0;
-    market->index_order = 0;
+    market->index_order_buy = 0;
+    market->index_order_sell = 0;
     return market;
 }
 
@@ -49,7 +51,8 @@ void printMarket(Market *market){
 int closeMarket(Market *market){
     free(market->stocks);
     free(market->users);
-    free(market->orders);
+    free(market->orders_buy);
+    free(market->orders_sell);
     free(market);
     return 1;
 }
