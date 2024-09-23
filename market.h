@@ -20,6 +20,8 @@ void printMarket(Market *market);
 
 int closeMarket(Market *market);
 
+int buy_OPI(Stock *stock, User *user, int nstocks, float value);
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */

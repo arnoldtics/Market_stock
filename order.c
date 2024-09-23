@@ -17,7 +17,7 @@ double randomValue(double a, double b){
 Order createOrder_buy(Market *market, Stock *stock, User *user) {
     Order order;
     float risk; 
-    if (market->index_order_buy < market->norders){
+    if (market->index_order_buy < market->norders_buy){
         risk = (float) randomValue(-0.05, 0.02);
         order.stock = stock;
         order.user = user;
@@ -39,7 +39,7 @@ Order createOrder_buy(Market *market, Stock *stock, User *user) {
 Order createOrder_sell(Market *market, Stock *stock, User *user) {
     Order order;
     float risk; 
-    if (market->index_order_sell < market->norders){
+    if (market->index_order_sell < market->norders_sell){
         risk = (float) randomValue(-0.02, 0.05);
         order.stock = stock;
         order.user = user;
@@ -60,9 +60,11 @@ Order createOrder_sell(Market *market, Stock *stock, User *user) {
 }
 
 void printOrders(Market *market){
+    printf("Orders Buy\n");
     for (int i=0; i < market->index_order_buy; i++){
         printf("%i,%i,%f\n", i, market->orders_buy[i].n_actions, market->orders_buy[i].bid);
     }
+    printf("Orders Sell\n");
     for (int i=0; i < market->index_order_sell; i++){
         printf("%i,%i,%f\n", i, market->orders_sell[i].n_actions, market->orders_sell[i].ask);
     }

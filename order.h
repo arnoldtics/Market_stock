@@ -10,7 +10,7 @@ extern "C" {
 #include "common.h"
 
 
-
+double randomValue(double a, double b);
 // Prototipos de funciones (usando Market * en lugar de struct Market *)
 Order createOrder_buy(Market *market, Stock *stock, User *user);
 Order createOrder_sell(Market *market, Stock *stock, User *user);

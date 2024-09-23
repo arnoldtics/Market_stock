@@ -21,7 +21,8 @@ typedef struct{
     char name[8];
     int nstocks; // Maximum stocks
     int nusers;  // Maximum users
-    int norders; // Maximum number of orders
+    int norders_buy; // Number of orders to buy
+    int norders_sell; // Number of orders to sell
     int index_stock; //total stocks
     int index_user; // total user
     int index_order_buy; //total of orders by iteration

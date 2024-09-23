@@ -48,6 +48,15 @@ void printMarket(Market *market){
     }
 }
 
+int buy_OPI(Stock *stock, User *user, int nstocks, float value){
+    if (user->money >= nstocks*value){
+        user->money -= nstocks*value;
+        stock->nstocks -= nstocks;
+        insert(user, stock->code, nstocks);
+        return 1;
+    } else {return 0;}
+}
+
 int closeMarket(Market *market){
     free(market->stocks);
     free(market->users);
