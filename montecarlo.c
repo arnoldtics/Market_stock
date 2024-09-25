@@ -39,7 +39,7 @@ int main(int argn, char **argv){
         // Creating users
         printf("Generating %i users... ",N);
         for(i=0; i < N; i++){
-            addUser(market, newUser(i, 1000.0, 0.0));
+            addUser(market, newUser(i, 1000.0));
             //user[i] = newUser(i,1000.00);
         }
         printf("Ready!\n");
@@ -55,7 +55,8 @@ int main(int argn, char **argv){
         for (int i = 0; i < market->index_user; i++){
             j = (int)randomValue(0.0, (float)market->index_stock);
             n = (int)((market->users[i].money/market->stocks[j].price)*randomValue(0.0, 1.0));
-
+            if (n < 1) n = 1;
+            buy_OPI(&market->stocks[j],&market->users[i],n,market->stocks[j].price);
         }
         k++;
         }while (k<2);
@@ -65,10 +66,10 @@ int main(int argn, char **argv){
         for (int i; i < 2; i++){
             montecarlo(market);
             printJapaneseCandle(market);
+            printOrders(market);
         }
 
         //printMarket(market);
-        printOrders(market);
 
         //free(user);
         //free(stock);

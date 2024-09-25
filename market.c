@@ -13,7 +13,8 @@ Market *newMarket(char name[], int nstocks, int nusers, int norders){
     strcpy(market->name, name);
     market->nstocks = nstocks;
     market->nusers = nusers;
-    market->norders = norders;
+    market->norders_buy = norders;
+    market->norders_sell = norders;
     market->stocks = malloc(nstocks * sizeof(Stock));
     market->users = malloc(nusers * sizeof(User));
     market->orders_buy = malloc(sizeof(Order)*norders);

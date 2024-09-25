@@ -20,7 +20,7 @@ typedef struct{
     int values[MAX_SIZE]; // Array to store the values 
 } User;
 
-User newUser(int index, float money, float money_in_orders);
+User newUser(int index, float money);
 
 // ask to participete to buy action in stock
 int askOrderBuy(User user, Stock stock);

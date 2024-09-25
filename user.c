@@ -48,7 +48,7 @@ void printMap(User user)
     } 
 } 
 
-User newUser(int index, float money, float money_in_orders){
+User newUser(int index, float money){
     User user;
     user.index = index;
     user.money = money;
