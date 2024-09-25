@@ -14,9 +14,9 @@ int montecarlo(Market *market){
 
     srand(time(NULL));
 
-    for(int i; i < market->index_stock; i++){
+    for(int i=0; i < market->index_stock; i++){
         price = market->stocks[i].price;
-        for(int j; j < market->index_user; j++){
+        for(int j=0; j < market->index_user; j++){
             //if (price <= market->users[j].money){
                 //the user has enough money to make a transaction
                 

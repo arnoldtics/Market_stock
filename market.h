@@ -22,6 +22,8 @@ int closeMarket(Market *market);
 
 int buy_OPI(Stock *stock, User *user, int nstocks, float value);
 
+int remain_stocks(Market market);
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */

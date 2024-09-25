@@ -39,23 +39,30 @@ int addUser(Market *market, User user){
 }
 
 void printMarket(Market *market){
-    printf("Stocks\n");
-    for(int i = 0; i < market->index_stock; i++){
-        printf("%s\n", market->stocks[i].code);
-    }
-    printf("Users:\n");
-    for (int i = 0; i < market->index_user; i++){
-        printf("%i %f\n", market->users[i].index, market->users[i].money);
-    }
+  printf("Stocks:\n");
+  for(int i=0; i < market->index_stock; i++){
+    printf("%s\t%f\t%i\n",market->stocks[i].code,market->stocks[i].price,market->stocks[i].nstocks);
+  }
+  printf("Users:\n");
+  for(int i=0; i < market->index_user; i++){
+    printf("%i\t%f\n",market->users[i].index, market->users[i].money);
+    printMap(market->users[i]);
+  }
 }
 
+// Returns the number of stocks bought by the user
 int buy_OPI(Stock *stock, User *user, int nstocks, float value){
-    if (user->money >= nstocks*value){
-        user->money -= nstocks*value;
-        stock->nstocks -= nstocks;
-        insert(user, stock->code, nstocks);
-        return 1;
-    } else {return 0;}
+    //printf("INFO1: nstocks=%i\tstock->nstocks=%i\n",nstocks,stock->nstocks);
+    if (nstocks > stock->nstocks && stock->nstocks > 0){
+        nstocks = stock->nstocks;
+    }    //printf("INFO2: nstocks=%i\tstock->nstocks=%i\n",nstocks,stock->nstocks);
+        if (user->money >= nstocks*value && stock->nstocks > 0){
+            user->money -= nstocks*value;
+            stock->nstocks -= nstocks;
+            insert(user, stock->code, nstocks);
+            return nstocks;
+        } else {return 0;}
+    //} else {return 0;}
 }
 
 int closeMarket(Market *market){
@@ -65,4 +72,11 @@ int closeMarket(Market *market){
     free(market->orders_sell);
     free(market);
     return 1;
+}
+
+int remain_stocks(Market market){
+    for (int i = 0; i < market.index_stock; i++){
+        if (market.stocks[i].nstocks > 0){return 1;}
+    }
+    return 0;
 }

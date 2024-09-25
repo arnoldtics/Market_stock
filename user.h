@@ -31,6 +31,8 @@ int get(User user, char key[]);
 
 void insert(User *user, char key[], int value);
 
+void printMap(User user); 
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */
