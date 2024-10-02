@@ -67,7 +67,7 @@ int main(int argn, char **argv){
 
         printMarket(market);
 
-        for(int i=0; i<1; i++){
+        for(int i=0; i<3; i++){
             montecarlo(market);
             printJapaneseCandle(market);
             //printOrders(market);
