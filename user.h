@@ -4,35 +4,29 @@
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
-
+  
 #include "stock.h"
+#include "common.h"
+#include "market.h"
 #include <string.h>
-
-#define MAX_SIZE 100 // Maximum number of elements in the map 
   
 
-typedef struct{
-    int index;
-    float money; // total money of the user
-    float money_in_orders; //money compromised in orders
-    int size; // Current number of elements in the map 
-    char keys[MAX_SIZE][100]; // Array to store the keys 
-    int values[MAX_SIZE]; // Array to store the values 
-} User;
+  User newUser(int index, float money);
 
-User newUser(int index, float money);
+  //ask to participate in buy action in stock
+  int askOrderBuy(User user, Stock stock);
 
-// ask to participete to buy action in stock
-int askOrderBuy(User user, Stock stock);
+  //ask
+  int askOrderSell(User user, Stock stock);
 
-int askOrderSell(User user, Stock stock);
+  int get(User user, char key[]);
+  
+  void insert(User *user, char key[], int value);
 
-int get(User user, char key[]);
+  void printMap(User user); 
 
-void insert(User *user, char key[], int value);
-
-void printMap(User user); 
-
+  float value_in_stocks(Market *market, User user);
+  
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */

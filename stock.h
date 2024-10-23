@@ -5,13 +5,20 @@
 extern "C" {
 #endif /* __cplusplus */
 
-typedef struct{
+  typedef struct{
     char code[8];
     float price;
-    int nstocks; // stocks available for sell
-} Stock;
+    float avg_price[256]; //vector to compute average price
+    int index_avg_price;
+    int nstocks; // stocks available for sell.
+    float min;
+    float max;
+    float begin;
+    float end;
+    int begin_flag;
+  }Stock;
 
-Stock newStock(char code[], float price, int nstocks);
+  Stock newStock(char code[], float price, int nstocks);
 
 #ifdef __cplusplus
 } /* extern "C" */

@@ -4,9 +4,14 @@
 #include "stock.h"
 
 Stock newStock(char code[], float price, int nstocks){
-    Stock stock;
-    stock.price = price;
-    strcpy(stock.code, code);
-    stock.nstocks = nstocks;
-    return stock;
+  Stock stock;
+  strcpy(stock.code, code);
+  stock.price = price;
+  stock.nstocks = nstocks;
+  stock.min= price;
+  stock.max=price;
+  stock.begin=price;
+  stock.end=price;
+  stock.index_avg_price=0;
+  return stock;
 }

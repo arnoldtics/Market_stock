@@ -4,12 +4,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
-#include "market.h"
+  #include "market.h"
 
-int montecarlo(Market *market);
-
-int printJapaneseCandle(Market *market);
-
+  int montecarlo(Market *market);
+  int printJapaneseCandle(Market *market);
+  
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */

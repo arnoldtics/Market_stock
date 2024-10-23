@@ -9,21 +9,27 @@ extern "C" {
 #include "user.h"
 #include "common.h"
 
+  //struct Order;
+  
+ 
+  Market *newMarket(char name[], int nstocks, int nusers, int norders);
 
+  int addStock(Market *market, Stock stock);
+  
+  int addUser(Market *market, User user);
 
-Market *newMarket(char name[], int nstocks, int nusers, int norders);
+  int buy_OPI(Stock *stock, User *user, int nstocks, float value);
+  
+  void printMarket(Market *market);
 
-int addStock(Market *market, Stock stock);
-int addUser(Market *market, User user);
+  int closeMarket(Market *market);
 
-void printMarket(Market *market);
+  int remain_stocks(Market market);
 
-int closeMarket(Market *market);
+  void print_divergence(Market *market);
 
-int buy_OPI(Stock *stock, User *user, int nstocks, float value);
-
-int remain_stocks(Market market);
-
+  float get_value_of_stock(Market *market,char *code);
+  
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */

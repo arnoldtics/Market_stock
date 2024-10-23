@@ -9,14 +9,18 @@ extern "C" {
 #include "user.h"
 #include "common.h"
 
+  //struct Market;
+  
+  Order createrOrder_buy(Market *market, Stock *stock, User *user);
+  
+  Order createrOrder_sell(Market *market,Stock *stock, User *user);
 
-double randomValue(double a, double b);
-// Prototipos de funciones (usando Market * en lugar de struct Market *)
-Order createOrder_buy(Market *market, Stock *stock, User *user);
-Order createOrder_sell(Market *market, Stock *stock, User *user);
+  void printOrders(Market *market);
+  
+  double randomValue(double a, double b);  
 
-void printOrders(Market *market);
-
+  int orders_trash_collector(Market *market);
+  
 #ifdef __cplusplus
 } /* extern "C" */
 #endif /* __cplusplus */
